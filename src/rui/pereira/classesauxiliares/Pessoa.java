@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Objects;
 
-public class Pessoa extends Object{
+public abstract class Pessoa extends Object{
     private Double CC;
     private Double NIF;
     private String Nome;
@@ -59,7 +59,7 @@ public class Pessoa extends Object{
      * @param cc
      */
     protected void setCC(String cc) {
-        if(Cidadao.validarCC(cc))
+        if( Cidadao.validarCC(cc) )
             this.CC = Double.parseDouble(cc);
     }
 

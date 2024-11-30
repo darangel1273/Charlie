@@ -4,12 +4,12 @@ public class ExceptionArgumento extends RuntimeException {
     public ExceptionArgumento(String message) {
         super(message);
     }
-    public ExceptionArgumento() {
+    @Deprecated public ExceptionArgumento() {
         super();
     }
 
     public void printStackTrace(String msg) {
-        this.printStackTrace(msg);
         getLocalizedMessage();
+        this.printStackTrace(msg);
     }
 }
