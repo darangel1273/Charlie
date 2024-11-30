@@ -1,5 +1,7 @@
 package rui.pereira.classesauxiliares;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
@@ -7,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Objects;
 
-public abstract class Pessoa extends Object{
+public class Pessoa extends Object{
     private Double CC;
     private Double NIF;
     private String Nome;
@@ -45,18 +47,18 @@ public abstract class Pessoa extends Object{
     */
 
     @Deprecated protected Pessoa( ArrayList<String> lista)  {
-        setCC( lista.get(0).toString() );
-        setNIF( lista.get(1).toString() );
-        setNome( lista.get(2).toString() );
-        setApelido( lista.get(3).toString() );
-        setNascimento( lista.get(4).toString() );
-        setSexo( lista.get(5).toString() );
+        setCC( lista.get(0) );
+        setNIF( lista.get(1) );
+        setNome( lista.get(2) );
+        setApelido( lista.get(3) );
+        setNascimento( lista.get(4) );
+        setSexo( lista.get(5) );
     }
 
     /**
      * setter
      *
-     * @param cc
+     * @param   cc    Cartão de Cidadão
      */
     protected void setCC(String cc) {
         if( Cidadao.validarCC(cc) )
@@ -88,7 +90,6 @@ public abstract class Pessoa extends Object{
         }
     }
 
-
     protected void setSexo( String sexo) {
         this.Sexo = sexo.charAt(0);
     }
@@ -100,7 +101,7 @@ public abstract class Pessoa extends Object{
     /**
      * getter
      *
-     * @return
+     * @return  CC  Cartão de Cidadão
      */
     protected Double getCC() {
         return CC;
@@ -129,10 +130,10 @@ public abstract class Pessoa extends Object{
     /**
      * Método getIdade
      *
-     * @return
+     * @return  Idade   Idade
      */
     protected Integer getIdade() {
-        Integer i = 0;
+        int i = 0;
         try {
             i = Idade.getYears();
 
@@ -152,10 +153,9 @@ public abstract class Pessoa extends Object{
      * @throws IOException
      * @deprecated
      */
-    /*@NonNull
-    @Deprecated public static Pessoa fromArrayList(@NonNull ArrayList<String> lista) throws Exception {
+    @Deprecated public static Pessoa fromArrayList(@NotNull ArrayList<String> lista) throws Exception {
         return new Pessoa(lista.get(0), lista.get(1), lista.get(2), lista.get(3), lista.get(4), lista.get(5)) ;
-    }*/
+    }
 
     /**
      * Método toArrayList
