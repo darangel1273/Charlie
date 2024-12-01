@@ -144,7 +144,7 @@ public class Contacto extends Pessoa {
      * @return  Contacto    Retorna Contacto
      */
 
-    @Deprecated public static @NotNull Contacto fromArrayList(ArrayList<String> lista) {
+    @Deprecated public static @NotNull Contacto from(ArrayList<String> lista) {
         try {
             return new Contacto(lista.get(0), lista.get(1), lista.get(2), lista.get(3), lista.get(4), lista.get(5), lista.get(6), lista.get(7), lista.get(8));
         } catch (IOException e) {
