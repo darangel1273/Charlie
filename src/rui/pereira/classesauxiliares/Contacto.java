@@ -70,28 +70,6 @@ public class Contacto extends Pessoa {
         return s.toString() ;
     }
     /**
-     * Getter method for the Telefone attribute.
-     * @return
-     */
-    public String getTelefone() {
-        return Telefone;
-    }
-
-    /**
-     * Getter method for the Email attribute.
-     * @return
-     */
-    public String getEmail() {
-        return Email;
-    }
-    /**
-     * Getter method for the Perfil attribute.
-     * @return
-     */
-    public URL getPerfil() {
-        return Perfil;
-    }
-    /**
      * Setter method for the Perfil attribute.
      * @param perfil
      */
@@ -113,7 +91,6 @@ public class Contacto extends Pessoa {
      *
      * @return perfil
      */
-
     /**
      * Setter method for the Morada attribute.
      *
@@ -133,6 +110,21 @@ public class Contacto extends Pessoa {
         Telefone = telefone;
     }
     /**
+     * Getter method for the Email attribute.
+     * @return
+     */
+    public String getEmail() {
+        return Email;
+    }
+
+    /**
+     * Getter method for the Telefone attribute.
+     * @return
+     */
+    public String getTelefone() {
+        return Telefone;
+    }
+    /**
      * Setter method for the Email attribute.
      * @param email
      */
@@ -140,10 +132,16 @@ public class Contacto extends Pessoa {
         Email = email;
     }
     /**
+     * Getter method for the Perfil attribute.
+     * @return
+     */
+    public URL getPerfil() {
+        return Perfil;
+    }
+    /**
      * @param   lista       Lista de Contactos
      * @return  Contacto    Retorna Contacto
      */
-
     @Deprecated public static @NotNull Contacto from(ArrayList<String> lista) {
         try {
             return new Contacto(lista.get(0), lista.get(1), lista.get(2), lista.get(3), lista.get(4), lista.get(5), lista.get(6), lista.get(7), lista.get(8));

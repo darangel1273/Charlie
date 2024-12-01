@@ -147,7 +147,7 @@ public class Pessoa {
      * @throws IOException
      * @deprecated
      */
-    @Deprecated public static Pessoa fromArrayList(@NotNull ArrayList<String> lista) {
+    @Deprecated public static Pessoa from(@NotNull ArrayList<String> lista) {
         return new Pessoa(lista.get(0), lista.get(1), lista.get(2), lista.get(3), lista.get(4), lista.get(5)) ;
     }
     /**
