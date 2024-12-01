@@ -12,8 +12,8 @@ import java.util.Objects;
 
 public class Pessoa {
     private String CC;
-    private Long BI;
-    private Double NIF;
+    private long BI;
+    private long NIF;
     private String Nome;
     private String Apelido;
     private LocalDate Nascimento;
@@ -67,8 +67,8 @@ public class Pessoa {
         this.CC = cc;
     }
     protected void setNIF( String nif ) throws NumberFormatException, ExceptionArgumento {
-        if( Contribuinte.validarNIF( nif ) )
-            this.NIF = Double.parseDouble( nif );
+//        if( Contribuinte.validarNIF( nif ) )
+            this.NIF = Long.parseLong( nif );
     }
 
     protected void setNome( String nome ) {
@@ -107,7 +107,7 @@ public class Pessoa {
     protected long getBI() {
         return BI;
     }
-    protected Double getNIF() {
+    protected long getNIF() {
         return NIF;
     }
     protected String getNome() {
@@ -139,7 +139,6 @@ public class Pessoa {
             return i;
         }
     }
-
     /**
      * Método toArrayList
      *
@@ -151,7 +150,6 @@ public class Pessoa {
     @Deprecated public static Pessoa fromArrayList(@NotNull ArrayList<String> lista) {
         return new Pessoa(lista.get(0), lista.get(1), lista.get(2), lista.get(3), lista.get(4), lista.get(5)) ;
     }
-
     /**
      * Método toArrayList
      *
@@ -159,8 +157,8 @@ public class Pessoa {
      */
     public ArrayList<String> toArrayList() {
         ArrayList<String> lista = new ArrayList<>();
-        lista.add( String.valueOf(getCC() ) );
-        lista.add( getNIF().toString() );
+        lista.add( String.valueOf( getCC() ) );
+        lista.add( String.valueOf( getNIF() ) );
         lista.add( getNome() );
         lista.add( getApelido() );
         lista.add( getNascimento().toString() );
@@ -168,7 +166,6 @@ public class Pessoa {
         lista.add( getSexo() );
         return lista;
     }
-
     /**
      * Método equals
      *
@@ -182,7 +179,6 @@ public class Pessoa {
         Pessoa pessoa = (Pessoa) o; //Cast
         return Objects.equals(getSexo(), pessoa.getSexo()) && Objects.equals(getCC(), pessoa.getCC()) && Objects.equals(getNIF(), pessoa.getNIF()) && Objects.equals(getNome(), pessoa.getNome()) && Objects.equals(getApelido(), pessoa.getApelido()) && Objects.equals(getNascimento(), pessoa.getNascimento()) && Objects.equals(getIdade(), pessoa.getIdade()) && Objects.equals(getSexo(), pessoa.getSexo());
     }
-
     /**
      * Método hashCode
      *
@@ -192,20 +188,17 @@ public class Pessoa {
     public int hashCode() {
         return Objects.hash(getCC(), getNIF(), getNome(), getApelido(), getNascimento(), getSexo(), getIdade());
     }
-
     /**
      * Método toString
      *
      * @return
      */
-
     @Override
     public String toString() {
         //return "Pessoa{" + "CC=" + getCC() + ", NIF=" + getNIF() + ", Nome='" + getNome() + ", Apelido='" + getApelido() + ", Nascimento=" + getNascimento() + ", Sexo=" + getSexo() + ", Idade=" + getIdade() + '}';
         return String.format(Locale.getDefault(), "CC=%s NIF=%s Nome=%s Apelido=%s Nascimento=%s Sexo=%s Idade=%d", getCC(), getNIF(), getNome(), getApelido(), getNascimento(), getSexo(), getIdade());
         //return new StringBuilder().append(getCC()).append(" ").append(getNIF()).append(" ").append(getNome()).append(" ").append(getApelido()).append(" ").append(getNascimento()).append(" ").append(getSexo()).append(" ").append(getIdade()).toString() ;
     }
-
     /**
      * Método toXML
      *
@@ -214,7 +207,6 @@ public class Pessoa {
     public String toXML() {
         return this.toXML();
     }
-
     /**
      * Método toJSON
      *
@@ -223,5 +215,4 @@ public class Pessoa {
     public String toJSON() {
         return this.toJSON();
     }
-
 }
