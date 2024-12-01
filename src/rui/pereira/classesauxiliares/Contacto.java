@@ -42,7 +42,6 @@ public class Contacto extends Pessoa {
         setTelefone(telefone);
         setEmail(email);
     }
-
     /**
      * Getter method for the Morada attribute.
      *
@@ -62,7 +61,7 @@ public class Contacto extends Pessoa {
      * @see <a href="https://developer.android.com/reference/android/location/Geocoder">Geocoder</a>
      */
     public String moradaToString() {
-        //return Morada.get(0).getLocality() + ", " + Morada.get(0).getAdminArea() + ", " + Morada.get(0).getPostalCode() + ", " + Morada.get(0).getCountryName();
+        // return Morada.get(0).getLocality() + ", " + Morada.get(0).getAdminArea() + ", " + Morada.get(0).getPostalCode() + ", " + Morada.get(0).getCountryName();
         // return String.format( Locale.getDefault() , " Locale:%s Locality:%s AdminArea:%s PostalCode:%s CountryName:%s ",
         //        this.Morada.get(0).getLocale(),this.Morada.get(0).getLocality(),this.Morada.get(0).getAdminArea(),
         //        this.Morada.get(0).getPostalCode() , this.Morada.get(0).getCountryName() ) ;
