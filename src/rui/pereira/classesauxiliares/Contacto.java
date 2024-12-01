@@ -54,7 +54,6 @@ public class Contacto extends Pessoa {
     public List<Address> getMorada() {
         return Morada;
     }
-
     /**
      * Morada to String method.
      * @author Ruin Mantel Die Oliver Prier
@@ -71,7 +70,6 @@ public class Contacto extends Pessoa {
         for ( Address a : Morada ){ s.append(" , " ) ; s.append(a );  }
         return s.toString() ;
     }
-
     /**
      * Getter method for the Telefone attribute.
      * @return
@@ -87,7 +85,6 @@ public class Contacto extends Pessoa {
     public String getEmail() {
         return Email;
     }
-
     /**
      * Getter method for the Perfil attribute.
      * @return
@@ -95,7 +92,6 @@ public class Contacto extends Pessoa {
     public URL getPerfil() {
         return Perfil;
     }
-
     /**
      * Setter method for the Perfil attribute.
      * @param perfil
@@ -113,7 +109,6 @@ public class Contacto extends Pessoa {
             System.out.println( uri.getScheme() + " " + uri.getAuthority() + " " + uri.getPath() + " " + uri.getQuery() + " " + uri.getFragment() );
         }
     }
-
     /**
      * Getter method for the Perfil attribute.
      *
@@ -135,11 +130,9 @@ public class Contacto extends Pessoa {
        this.Morada = new LinkedList<>() ;
        this.Morada.add( new Address( morada  ) );
     }
-
     public void setTelefone(String telefone) {
         Telefone = telefone;
     }
-
     /**
      * Setter method for the Email attribute.
      * @param email
@@ -148,8 +141,8 @@ public class Contacto extends Pessoa {
         Email = email;
     }
     /**
-     * @param lista
-     * @return
+     * @param   lista       Lista de Contactos
+     * @return  Contacto    Retorna Contacto
      */
 
     @Deprecated public static @NotNull Contacto fromArrayList(ArrayList<String> lista) {
@@ -175,7 +168,6 @@ public class Contacto extends Pessoa {
      *
      * @return
      */
-
     @Override
     public String toString() {
         return super.toString() + " Contacto{" + "Morada=" + Morada + ", Telefone='" + Telefone + ", Email='" + Email + '}';
@@ -189,8 +181,8 @@ public class Contacto extends Pessoa {
     @Override
     public boolean equals(Object o) {
         if ( this == o ) return true;
-        if (! ( o instanceof Contacto ) ) return false;
-        if ( !super.equals( o )) return false;
+        if ( !( o instanceof Contacto ) ) return false;
+        if ( !super.equals( o ) ) return false;
         Contacto contacto = (Contacto) o;
         return Objects.equals(getMorada(), contacto.getMorada()) && Objects.equals(getTelefone(), contacto.getTelefone()) && Objects.equals(getEmail(), contacto.getEmail());
     }
