@@ -2,6 +2,7 @@ package rui.pereira.classesauxiliares;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
@@ -10,7 +11,8 @@ import java.util.Locale;
 import java.util.Objects;
 
 public class Pessoa {
-    private Long CC;
+    private String CC;
+    private Long BI;
     private Double NIF;
     private String Nome;
     private String Apelido;
@@ -35,16 +37,16 @@ public class Pessoa {
         setNascimento( nascimento );
         setSexo( sexo );
     }
-/*
-    @Deprecated protected Pessoa(@NonNull Editable cc, @NonNull Editable nif, @NonNull Editable nome, @NonNull Editable apelido, @NonNull Editable nascimento, @NonNull Editable sexo) {
-        setCC(cc.toString() );
-        setNIF(nif.toString() );
-        setNome(nome.toString() );
-        setApelido(apelido.toString() );
-        setNascimento(nascimento.toString() );
-        setSexo(sexo.toString() );
+
+    @Deprecated protected Pessoa(TextField cc, TextField nif, TextField nome, TextField apelido, TextField nascimento, TextField sexo) {
+        setCC(cc.getText() );
+        setNIF(nif.getText() );
+        setNome(nome.getText() );
+        setApelido(apelido.getText() );
+        setNascimento(nascimento.getText() );
+        setSexo(sexo.getText() );
     }
-    */
+
 
     @Deprecated protected Pessoa( ArrayList<String> lista)  {
         setCC( lista.get(0) );
@@ -54,33 +56,32 @@ public class Pessoa {
         setNascimento( lista.get(4) );
         setSexo( lista.get(5) );
     }
-
     /**
      * setter
      *
      * @param   cc    Cartão de Cidadão
      */
     protected void setCC(String cc) {
-        if( Cidadao.validarCC(cc) )
-            this.CC = Long.parseLong( cc.substring(0,7) );
+        if (Cidadao.validarCC(cc))
+            this.BI = Long.parseLong( cc.substring(0, 7) );
+        this.CC = cc;
+    }
+    protected void setNIF( String nif ) throws NumberFormatException, ExceptionArgumento {
+        if( Contribuinte.validarNIF( nif ) )
+            this.NIF = Double.parseDouble( nif );
     }
 
-    protected void setNIF(String nif) throws NumberFormatException, ExceptionArgumento {
-        if( Boolean.TRUE.equals(Contribuinte.validarNIF(nif) ) )
-            this.NIF = Double.parseDouble(nif);
-    }
-
-    protected void setNome(String nome) {
+    protected void setNome( String nome ) {
         this.Nome = nome;
     }
 
-    protected void setApelido(String apelido) {
+    protected void setApelido( String apelido ) {
         Apelido = apelido;
     }
 
-    protected void setNascimento(String nascimento) {
+    protected void setNascimento( String nascimento ) {
         try {
-                Nascimento = LocalDate.parse(nascimento);
+                Nascimento = LocalDate.parse( nascimento );
         } catch (Exception erro) {
             erro.printStackTrace();
                 Nascimento = LocalDate.now();
@@ -89,44 +90,38 @@ public class Pessoa {
             setIdade();
         }
     }
-
     protected void setSexo( String sexo) {
         this.Sexo = sexo.charAt(0);
     }
-
     private void setIdade() {
-            Idade = Period.between(Nascimento, LocalDate.now());
+            Idade = Period.between( this.Nascimento, LocalDate.now());
     }
-
     /**
      * getter
      *
      * @return  CC  Cartão de Cidadão
      */
-    protected long getCC() {
+    protected String getCC() {
         return CC;
     }
-
+    protected long getBI() {
+        return BI;
+    }
     protected Double getNIF() {
         return NIF;
     }
-
     protected String getNome() {
         return Nome;
     }
-
     protected String getApelido() {
         return Apelido;
     }
-
     protected LocalDate getNascimento() {
         return Nascimento;
     }
-
     protected String getSexo() {
         return String.format(Locale.getDefault(), "%c", Sexo);
     }
-
     /**
      * Método getIdade
      *

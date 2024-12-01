@@ -14,7 +14,7 @@ public interface Contribuinte {
     @Nullable
     @Contract(pure = true)
     static Boolean validarNIF( @NotNull String nif ) {
-        final int max = 9;
+        final int max = 8;
         //check if is numeric and has 9 numbers
         if ( !nif.matches("[0-9]+" ) || nif.length() != max )
             return false;
