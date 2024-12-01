@@ -1,5 +1,7 @@
 package rui.pereira.classesauxiliares;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -148,12 +150,14 @@ public class Contacto extends Pessoa {
     /**
      * @param lista
      * @return
-     * @throws IOException
      */
 
-    @Deprecated public static Contacto fromArrayList( ArrayList<String> lista) throws IOException {
-        Contacto c = new Contacto(lista.get(0), lista.get(1), lista.get(2), lista.get(3), lista.get(4), lista.get(5), lista.get(6), lista.get(7), lista.get(8));
-        return c;
+    @Deprecated public static @NotNull Contacto fromArrayList(ArrayList<String> lista) {
+        try {
+            return new Contacto(lista.get(0), lista.get(1), lista.get(2), lista.get(3), lista.get(4), lista.get(5), lista.get(6), lista.get(7), lista.get(8));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
     /**
      * To ArrayList method.

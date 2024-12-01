@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Objects;
 
-public class Pessoa extends Object{
+public class Pessoa {
     private Double CC;
     private Double NIF;
     private String Nome;
@@ -153,7 +153,7 @@ public class Pessoa extends Object{
      * @throws IOException
      * @deprecated
      */
-    @Deprecated public static Pessoa fromArrayList(@NotNull ArrayList<String> lista) throws Exception {
+    @Deprecated public static Pessoa fromArrayList(@NotNull ArrayList<String> lista) {
         return new Pessoa(lista.get(0), lista.get(1), lista.get(2), lista.get(3), lista.get(4), lista.get(5)) ;
     }
 
