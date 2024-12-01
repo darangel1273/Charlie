@@ -10,7 +10,7 @@ import java.util.Locale;
 import java.util.Objects;
 
 public class Pessoa {
-    private Double CC;
+    private Long CC;
     private Double NIF;
     private String Nome;
     private String Apelido;
@@ -62,7 +62,7 @@ public class Pessoa {
      */
     protected void setCC(String cc) {
         if( Cidadao.validarCC(cc) )
-            this.CC = Double.parseDouble(cc);
+            this.CC = Long.parseLong( cc.substring(0,7) );
     }
 
     protected void setNIF(String nif) throws NumberFormatException, ExceptionArgumento {
@@ -103,7 +103,7 @@ public class Pessoa {
      *
      * @return  CC  Cartão de Cidadão
      */
-    protected Double getCC() {
+    protected long getCC() {
         return CC;
     }
 
@@ -164,7 +164,7 @@ public class Pessoa {
      */
     public ArrayList<String> toArrayList() {
         ArrayList<String> lista = new ArrayList<>();
-        lista.add( getCC().toString() );
+        lista.add( String.valueOf(getCC() ) );
         lista.add( getNIF().toString() );
         lista.add( getNome() );
         lista.add( getApelido() );
